@@ -1,0 +1,24 @@
+<div class="jumbotron text-center">
+  <h1>Weather</h1>
+  <h4>Click on links for additional details</h4>
+</div>
+<div class="row weather" ng-repeat="details in weatherData.list">
+  <city-weather-details></city-weather-details>
+</div>
+<!-- <div city-weather-details class="coolClass"></div> -->
+<div class="myDom" link-example>
+  Click Me!
+</div>
+
+<isolated-scope name-attr={{customer.name}} datasource="customer" ng-click="changeData()"></isolated-scope>
+<!-- strings need to be 2way bound, objects do not  -->
+<br>
+<isolated-scope-with-transclusion>
+  <div class="" ng-repeat="task in tasks track by $index">
+    <strong>{{task.title}}</strong>
+  </div>
+</isolated-scope-with-transclusion>
+
+<isolate-scope-with-controller datasource="customers" add="addCustomer()">
+
+</isolate-scope-with-controller>

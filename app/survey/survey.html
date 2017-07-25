@@ -1,0 +1,41 @@
+<div class="jumbotron text-center">
+  <h1>Enter Weather Information for Your Location</h1>
+</div>
+
+<div class="form">
+  <form class="WeatherForm" name="WeatherForm" novalidate>
+    <div class="row">
+      <label for="CurrentTemp">Current Temp: </label>
+      <input required
+        ng-required="true"
+        class="weatherInput"
+        type="number"
+        min="-100"
+        max="200"
+        name="CurrentTemp"
+        ng-model="weatherInfo.currentTemp"
+        ng-blur="testFunc(WeatherForm)">
+      <p ng-show="WeatherForm.CurrentTemp.$error.required && WeatherForm.CurrentTemp.$touched">Current Temp is required.</p>
+      <!-- <p ng-show="WeatherForm.CurrentTemp.$invalid && WeatherForm.CurrentTemp.$dirty">Current Temp is out of range.</p> -->
+    </div>
+    <div class="row">
+      <label for="Description">Description: </label>
+      <input ng-required="true" class="weatherInput" type="text" name="Description" ng-model="weatherInfo.description" ng-maxlength="50">
+      <p ng-show="WeatherForm.Description.$error.required && WeatherForm.Description.$touched">Description is required.</p>
+      <p ng-show="WeatherForm.Description.$error.maxlength">Description is too long.</p>
+    </div>
+    <div class="row">
+      <label for="Humidity">Humidity: </label>
+      <input ng-required="true" class="weatherInput" type="text" name="Humidity" ng-model="weatherInfo.humidity">
+      <p ng-show="WeatherForm.Humidity.$error.required && WeatherForm.Humidity.$touched">Humidity is required.</p>
+    </div>
+    <div class="row">
+      <label for="RainChance">Chance of Rain: </label>
+      <input ng-required="true" class="weatherInput" type="text" name="RainChance" ng-model="weatherInfo.rainChance">
+      <p ng-show="WeatherForm.RainChance.$error.required && WeatherForm.RainChance.$touched">Rain Chance is required.</p>
+    </div>
+    <div class="row">
+      <button ng-click="submit(WeatherForm)" type="button" name="button" ng-disabled="WeatherForm.$invalid">Submit</button>
+    </div>
+  </form>
+</div>

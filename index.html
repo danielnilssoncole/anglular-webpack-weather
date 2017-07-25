@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css" />
+  <link rel="stylesheet" href="app/styles/main.css" />
+  <script src="bin/app.bundle.js"></script>
+</head>
+<body>
+  <nav class="navbar navbar-default">
+    <div class="container">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#home">My Angular Weather Application</a>
+      </div>
+      <ul ng-controller="HomeController" class="nav navbar-nav navbar-right">
+        <li><a href="#home"><i class="glyphicon glyphicon-home"></i> Home</a></li>
+        <li><a href="" ng-click="goToSurveyView()"><i class="glyphicon glyphicon-info-sign"></i> Create New Weather Data</a></li>
+      </ul>
+    </div>
+  </nav>
+  <div id="main">
+    <div ui-view></div>
+  </div>
+</body>
+</html>
