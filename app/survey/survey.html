@@ -10,13 +10,12 @@
         ng-required="true"
         class="weatherInput"
         type="number"
-        min="-100"
-        max="200"
         name="CurrentTemp"
         ng-model="weatherInfo.currentTemp"
-        ng-blur="testFunc(WeatherForm)">
+        ng-blur="isTempValid(WeatherForm)">
       <p ng-show="WeatherForm.CurrentTemp.$error.required && WeatherForm.CurrentTemp.$touched">Current Temp is required.</p>
-      <!-- <p ng-show="WeatherForm.CurrentTemp.$invalid && WeatherForm.CurrentTemp.$dirty">Current Temp is out of range.</p> -->
+      <p ng-show="WeatherForm.CurrentTemp.$error.belowMin && WeatherForm.CurrentTemp.$dirty">Current Temp must be above -100.</p>
+      <p ng-show="WeatherForm.CurrentTemp.$error.aboveMax && WeatherForm.CurrentTemp.$dirty">Current Temp must be below 200.</p>
     </div>
     <div class="row">
       <label for="Description">Description: </label>
